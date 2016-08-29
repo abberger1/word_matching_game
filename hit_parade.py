@@ -1,6 +1,3 @@
-#!/home/andrew/anaconda3/bin/python3.5
-import re
-
 wc = 0
 level = 0
 score = 0
