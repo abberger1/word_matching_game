@@ -50,29 +50,21 @@ elif game == 'm':  # matching game
         words, defs = list(groups.keys()), list(groups.values())
         while level < 5:
 
-                #  subset n words and matching definitions
                 vocab = words[level*n:(level*n)+n]
                 answers = [x[1] for x in defs[level*n:(level*n)+n]]
 
-                #  separate subset into two 2D arrays
-                #  sort both alphabetically by vocab words
                 correct_pairs = sorted(list(zip(vocab, answers)), key=lambda x: x[0])
                 jambled = sorted(list(zip(vocab, set(answers))), key=lambda x: x[0])
 
-                #  print out unmatching words & definitions
                 for v, a in enumerate(jambled):
                     print(v, a)
                 print()
 
-                #  given the order of words,
-                #  input the matching order of definitions
                 correct_order = map(int, input().split(' '))
                 print()
                     
-                #  capture the definitions from input
                 marks = [jambled[x] for x in correct_order]
 
-                #  compare input to correct answers
                 for x in range(n):
                         if marks[x][1] ==  correct_pairs[x][1]:
                             print('correct')
